@@ -96,7 +96,36 @@ public class AppointmentBook
 
     private void reserveBlock(int period, int startMinute, int endMinute)
     {
-        
+        for(int i=startMinute; i<=endMinute; i++)
+        {
+            switch(period)
+            {
+                case 1:
+                    period1[i] = false;
+                    break;
+                case 2:
+                    period2[i] = false;
+                    break;
+                case 3:
+                    period3[i] = false;
+                    break;
+                case 4:
+                    period4[i] = false;
+                    break;
+                case 5:
+                    period5[i] = false;
+                    break;
+                case 6:
+                    period6[i] = false;
+                    break;
+                case 7:
+                    period7[i] = false;
+                    break;
+                case 8:
+                    period8[i] = false;
+                    break;
+            };
+        }
     }
 
     public int findFreeBlock(int period, int duration)
