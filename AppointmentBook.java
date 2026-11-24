@@ -1,6 +1,3 @@
-import java.util.Scanner;
-
-
 public class AppointmentBook
 {
     private boolean[][] schedule;
@@ -16,9 +13,12 @@ public class AppointmentBook
         return schedule[period - 1][minute];
     }
 
-    private void reserveBlock(int period, int startMinute, int endMinute)
+    private void reserveBlock(int period, int startMinute, int duration)
     {
-        
+        for(int i = startMinute; i < startMinute + duration; i++)
+        {
+            schedule[period - 1][i] = false;
+        }
     }
 
     public int findFreeBlock(int period, int duration)
@@ -44,6 +44,15 @@ public class AppointmentBook
 
     public boolean makeAppointment(int startPeriod, int endPeriod, int duration)
     {
-
+        for(int i = startPeriod; i <= endPeriod; i++)
+        {
+            int freeBlock = findFreeBlock(i, duration);
+            if (freeBlock > -1)
+            {
+                reserveBlock(i, freeBlock, duration);
+                return true;
+            }
+        }   
+        return false;
     }
 }
