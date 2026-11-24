@@ -27,6 +27,8 @@ public class Main
             schedules[i] = new AppointmentBook(schedule);
             i++;
         }
+
+        
         f = new File("requests.txt");
         s = new Scanner(f);
         int meetings = 0;
