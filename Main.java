@@ -11,7 +11,7 @@ public class Main
         File f = new File("schedules.txt");
         Scanner s = new Scanner(f);
         int i = 0;
-        while (s.hasNextLine())
+        while (s.hasNextLine() && i < 100)
         {
             boolean[][] schedule = new boolean[8][60];
             int j = 0;
@@ -28,7 +28,9 @@ public class Main
             i++;
         }
 
-        
+        System.out.println(schedules[99].);
+
+
         f = new File("requests.txt");
         s = new Scanner(f);
         int meetings = 0;
