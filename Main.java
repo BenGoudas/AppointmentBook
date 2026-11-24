@@ -7,34 +7,18 @@ public class Main
 {
     public static void main(String[] args) throws IOException
     {
-        File f = new File("schedules.txt");
-        Scanner s = new Scanner(f);
-        AppointmentBook[] teachers = new AppointmentBook[100];
-        for (int i=0; i < 100; i++)
-        {
-            teachers[i] = new AppointmentBook(s.nextLine() + " " + s.nextLine() + " " + s.nextLine() + " " + s.nextLine() + " " + s.nextLine() + " " + s.nextLine() + " " + s.nextLine() + " " + s.nextLine() + " " + s.nextLine());
-        }
+        boolean[][] schedule = new boolean [8][60];
+        AppointmentBook a = new AppointmentBook(schedule);
+        for(int i = 10; i < 15; i++) schedule[1][i] = true;
 
-        f = new File("requests.txt");
-        s = new Scanner(f);
-        int sucessfulAppointments = 0;
-        for (int i=0; i < 1000; i++)
-        {
-            int teacher = s.nextInt();
-            int startpd = s.nextInt();
-            int endpd = s.nextInt();
-            int drtion = s.nextInt();
-            for (int j = startpd; j < endpd; j++)
-            {
-                boolean appointmentMade = teachers[teacher].makeAppointment(startpd, endpd, drtion);
-                if (appointmentMade == true)
-                {
-                    sucessfulAppointments++;
-                }
-            }
-        }
-        
-        System.out.println(sucessfulAppointments);
+        schedule = new boolean[8][60];
+        for(int i = 25; i < 30; i++) schedule[1][i] = true;
+        for(int i = 0; i < 15; i++) schedule[2][i] = true;
+        for(int i = 41; i < 60; i++) schedule[2][i] = true;
+        for(int i = 5; i < 30; i++) schedule[3][i] = true;
+        for(int i = 44; i < 60; i++) schedule[3][i] = true;
+
+        AppointmentBook b = new AppointmentBook(schedule);
     }
     
 
